@@ -1,0 +1,46 @@
+.container {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(235, 234, 234);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 15px;
+  height: 30px;
+  width: 350px;
+}
+
+button{
+  background-color: yellowgreen;
+  height: 35px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(124, 124, 124, 0.5);
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
+  color: rgb(88, 88, 88);
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(109, 109, 109);
+  color: greenyellow;
+}
+

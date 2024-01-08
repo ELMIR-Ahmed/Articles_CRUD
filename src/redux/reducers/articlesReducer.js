@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, DELETE_ARTICLE } from "../actions/actionTypes";
+import { ADD_ARTICLE, DELETE_ARTICLE, UPDATE_ARTICLE } from "../actions/actionTypes";
 
 const initialState = {
   articles : [
@@ -57,10 +57,25 @@ export default function articlesReducer (state = initialState, action) {
   switch (action.type) {
     case ADD_ARTICLE:
       return {...state, articles : [...state.articles, action.payload]}
-    case DELETE_ARTICLE:
-      return {
-        ...state, articles : [...state.articles.filter(article => article.id !== action.payload)]
-      }
+      case DELETE_ARTICLE:
+        return {
+          ...state,
+          articles: [...state.articles.filter(article => article.id !== action.payload)]
+        };
+      
+      case UPDATE_ARTICLE:
+        // Trouver l'index de l'article à mettre à jour
+        const indexToUpdate = state.articles.findIndex(article => article.id === action.payload.id);
+  
+        // Si l'index est trouvé, mettre à jour l'article
+        if (indexToUpdate !== -1) {
+          const updatedArticles = [...state.articles];
+          updatedArticles[indexToUpdate] = action.payload;
+          return { ...state, articles: updatedArticles };
+        }
+  
+        // Si l'index n'est pas trouvé, retourner l'état inchangé
+        return state;
     default:
       return state
   }
