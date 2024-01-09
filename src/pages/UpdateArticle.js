@@ -33,7 +33,6 @@ function UpdateArticle() {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     dispatch(update_article(data))
     navigate('/')
   }

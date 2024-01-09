@@ -7,12 +7,17 @@ import { add_article } from '../redux/actionCreators/actionCreators'
 import { useNavigate } from 'react-router-dom'
 
 function CreateArticle() {
+  
   const data = useSelector(state => state.articles)
   const [newArticle, setNewArticle] = useState({"id" : "", "nom" : "", "prix" : "", "stock" : ""})
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleName = (e) => {
+    if (data.length < 1) {
+        setNewArticle({...newArticle, nom : e.target.value, id : 1})
+        return;
+    }
     setNewArticle({...newArticle, nom : e.target.value, id : data[data.length - 1].id + 1})
   }  
   const handlePrice = (e) => {
