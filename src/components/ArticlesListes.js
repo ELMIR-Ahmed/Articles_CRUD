@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 // import { Link } from 'react-router-dom'
 import Article from './Article'
 import '../style/Article-liste.css'
@@ -7,7 +7,7 @@ import Header from './Header'
 
 function ArticlesListes() {
   const data = useSelector(state => state.articles)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   return (
     <div className='Article-liste'>
         <Header/>
